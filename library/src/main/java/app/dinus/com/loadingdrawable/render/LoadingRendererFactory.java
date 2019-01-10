@@ -58,9 +58,7 @@ public final class LoadingRendererFactory {
         Constructor<?>[] constructors = loadingRendererClazz.getDeclaredConstructors();
         for (Constructor<?> constructor : constructors) {
             Class<?>[] parameterTypes = constructor.getParameterTypes();
-            if (parameterTypes != null
-                    && parameterTypes.length == 1
-                    && parameterTypes[0].equals(Context.class)) {
+            if (parameterTypes.length == 1 && parameterTypes[0].equals(Context.class)) {
                 constructor.setAccessible(true);
                 return (LoadingRenderer) constructor.newInstance(context);
             }

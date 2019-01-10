@@ -2,15 +2,16 @@ package app.dinus.com.loadingdrawable;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.ImageView;
 
 import app.dinus.com.loadingdrawable.render.LoadingDrawable;
 import app.dinus.com.loadingdrawable.render.LoadingRenderer;
 import app.dinus.com.loadingdrawable.render.LoadingRendererFactory;
 
-public class LoadingView extends ImageView {
+public class LoadingView extends android.support.v7.widget.AppCompatImageView {
+
     private LoadingDrawable mLoadingDrawable;
 
     public LoadingView(Context context) {
@@ -52,7 +53,7 @@ public class LoadingView extends ImageView {
     }
 
     @Override
-    protected void onVisibilityChanged(View changedView, int visibility) {
+    protected void onVisibilityChanged(@NonNull View changedView, int visibility) {
         super.onVisibilityChanged(changedView, visibility);
 
         final boolean visible = visibility == VISIBLE && getVisibility() == VISIBLE;
